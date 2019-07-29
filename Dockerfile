@@ -1,3 +1,5 @@
-FROM alpine:3.8
+FROM debian:buster-slim
 
-RUN apk add --no-cache curl
+RUN apt update && \
+    apt install --no-install-recommends --assume-yes curl && \
+    rm -rf /var/lib/apt/lists/*
